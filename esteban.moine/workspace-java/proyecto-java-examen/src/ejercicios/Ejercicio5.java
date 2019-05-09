@@ -643,28 +643,130 @@ public class Ejercicio5 {
         
 		try {
 			PreparedStatement preparedStatement = conn.prepareStatement(persona);
-	        preparedStatement.executeUpdate(persona, Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.executeUpdate(persona, Statement.RETURN_GENERATED_KEYS);
 
-	        PreparedStatement preparedStatement2 = conn.prepareStatement(alumno);
-	        preparedStatement2.executeUpdate(alumno, Statement.RETURN_GENERATED_KEYS);
-	        
-	        PreparedStatement preparedStatement3 = conn.prepareStatement(carrera);
-	        preparedStatement3.executeUpdate(carrera, Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement preparedStatement2 = conn.prepareStatement(alumno);
+			preparedStatement2.executeUpdate(alumno, Statement.RETURN_GENERATED_KEYS);
 
-	        PreparedStatement preparedStatement4 = conn.prepareStatement(curso);
-	        preparedStatement4.executeUpdate(curso, Statement.RETURN_GENERATED_KEYS);
-	        
-	        PreparedStatement preparedStatement5 = conn.prepareStatement(inscripciones_carrera);
-	        preparedStatement5.executeUpdate(inscripciones_carrera, Statement.RETURN_GENERATED_KEYS);
-	        
-	        PreparedStatement preparedStatement6 = conn.prepareStatement(inscripciones_curso);
-	        preparedStatement6.executeUpdate(inscripciones_curso, Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement preparedStatement3 = conn.prepareStatement(carrera);
+			preparedStatement3.executeUpdate(carrera, Statement.RETURN_GENERATED_KEYS);
+
+			PreparedStatement preparedStatement4 = conn.prepareStatement(curso);
+			preparedStatement4.executeUpdate(curso, Statement.RETURN_GENERATED_KEYS);
+
+			PreparedStatement preparedStatement5 = conn.prepareStatement(inscripciones_carrera);
+			preparedStatement5.executeUpdate(inscripciones_carrera, Statement.RETURN_GENERATED_KEYS);
+
+			PreparedStatement preparedStatement6 = conn.prepareStatement(inscripciones_curso);
+			preparedStatement6.executeUpdate(inscripciones_curso, Statement.RETURN_GENERATED_KEYS);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 
+		/*INFORMACION DE PRUEBA
+		 
+		 	INSERT INTO persona (tipodoc,documento,nombre,apellido,fechanac,direccion) VALUES
+		    	('DNI', 31565839, 'Florencia', 'Maneiro', '1985-06-28','direccion 123');
+		   	INSERT INTO persona (tipodoc,documento,nombre,apellido,fechanac,direccion) VALUES
+		    	('DNI', 31000123, 'Patricia', 'Brumatti', '1985-01-13','direccion 123');
+		    	INSERT INTO persona (tipodoc,documento,nombre,apellido,fechanac,direccion) VALUES
+		    	('DNI', 20945422, 'Diego', 'Menendez', '1982-04-10','direccion 123');   
+		    	INSERT INTO persona (tipodoc,documento,nombre,apellido,fechanac,direccion) VALUES
+		    	('DNI', 30999281, 'Franzo', 'Perez', '1986-02-05','direccion 123');
+		    	INSERT INTO persona (tipodoc,documento,nombre,apellido,fechanac,direccion) VALUES
+		    	('DNI', 24112872, 'Leandro', 'Garcia', '1988-01-03','direccion 123');
+		 
+		 
+		 	INSERT INTO alumno (idpersona,legajo) VALUES
+		    	(3, 98734);
+		    	INSERT INTO alumno (idpersona,legajo) VALUES
+		    	(4, 09213);
+		    	INSERT INTO alumno (idpersona,legajo) VALUES
+		    	(1, 35839);
+		    	INSERT INTO alumno (idpersona,legajo) VALUES
+		    	(5, 36299);
+		    	INSERT INTO alumno (idpersona,legajo) VALUES
+		    	(2, 11009);
+		    
+		    
+		    	INSERT INTO carrera (nombre,descripcion,fechadesde,fechahasta) VALUES
+		    	('Ingenieria en sistema de información', 'Carrera a fines a programación y desarrollo de software en general','1960-01-01','1960-01-01');
+		
+		    	INSERT INTO carrera (nombre,descripcion,fechadesde,fechahasta) VALUES
+		    	('Ingenieria civil', 'Carrera a fines a construcción, planificación y desarrollo de obras de desarrollo urbano','1980-01-01','1960-01-01');
+		 	
+		 	
+		 	
+		 	INSERT INTO curso (idcarrera,nombre,descripcion,cupomaximo,anio,docente) VALUES
+		    	(1,'Análisis matemático', 'Curso sobre el desarrollo avanzado de matemáticas', 5,2018,'Juan perez');
+		    
+		  	INSERT INTO curso (idcarrera,nombre,descripcion,cupomaximo,anio,docente) VALUES
+		    	(1,'Diseño de sistemas', 'Curso sobre diseño de componentes de sistemas de software', 3,2018,'Juan perez');
+		
+		  	INSERT INTO curso (idcarrera,nombre,descripcion,cupomaximo,anio,docente) VALUES
+		    	(1,'Java', 'Curso sobre el lenguaje de programación JAVA', 4,2018,'Juan perez');
+		
+		  	INSERT INTO curso (idcarrera,nombre,descripcion,cupomaximo,anio,docente) VALUES
+		    	(1,'Base de datos-SQL', 'Curso sobre tipos de base de datos y consultas sql', 10,2018,'Juan perez');
+		
+		  	INSERT INTO curso (idcarrera,nombre,descripcion,cupomaximo,anio,docente) VALUES
+		    	(2,'Fisica básica', 'Curso sobre fundamentos base de física', 5,2018,'Juan perez');
+		
+		  	INSERT INTO curso (idcarrera,nombre,descripcion,cupomaximo,anio,docente) VALUES
+		    	(2,'Dibujo', 'Curso sobre dibujo de planos', 10,2018,'Juan perez');
+		 	
+		 	
+		 	INSERT INTO inscripciones_carrera (idalumno,idcarrera,fechainscripcion)  VALUES
+			(1,1,'2000-01-01');
+			INSERT INTO inscripciones_carrera (idalumno,idcarrera,fechainscripcion) VALUES
+			(2,1,'2003-01-01');
+			INSERT INTO inscripciones_carrera (idalumno,idcarrera,fechainscripcion) VALUES
+			(3,1,'2004-01-01');
+			INSERT INTO inscripciones_carrera (idalumno,idcarrera,fechainscripcion) VALUES
+			(4,1,'2001-01-01');
+			INSERT INTO inscripciones_carrera (idalumno,idcarrera,fechainscripcion) VALUES
+			(5,2,'2000-01-01');
+			INSERT INTO inscripciones_carrera (idalumno,idcarrera,fechainscripcion) VALUES
+			(4,2,'2000-01-01');
+			
+			
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(1,1,2,'2002-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(1,2,3,'2006-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(1,3,4,'2002-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(2,1,5,'2004-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(2,3,6,'2002-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(2,4,7,'2004-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(3,1,8,'2010-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(3,3,9,'2010-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(4,1,7,'2010-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(4,3,8,'2010-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(5,3,8,'2010-01-01');
+			
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(4,3,6,'2010-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(5,4,6,'2011-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(4,4,6,'2011-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(2,5,5,'2011-01-01');
+			INSERT INTO inscripciones_curso (idalumno,idcurso,nota,fechainscripcion) VALUES
+			(2,6,4,'2011-01-01');
+		 	
+		 */
 		
 	}
 
